@@ -1063,19 +1063,19 @@ app.Android18 = (function(){
 	
 	//Starts a jump/flight
 	Android18.prototype.checker = function(){
-		if(app.main.chance <= .1 && app.main.CF == false){
+		if(app.main.chance <= .1 && app.main.chance > 0 && app.main.CF == false){
 			this.useMove = 0;
-		} else if(app.main.chance <= .2 && app.main.CF == false){
+		} else if(app.main.chance <= .2 && app.main.chance > .1 &&  app.main.CF == false){
 			this.useMove = 1;
-		} else if(app.main.chance <= .3 && app.main.BB == true){
+		} else if(app.main.chance <= .3 && app.main.chance > .2 && app.main.BB == true){
 			this.useMove = 2;
-		} else if(app.main.chance <= .4 && app.main.MS == true){
+		} else if(app.main.chance <= .4 && app.main.chance > .3 && app.main.MS == true){
 			this.useMove = 3;
-		} else if(app.main.chance <= .5 && app.main.DD == true){
+		} else if(app.main.chance <= .5 && app.main.chance > .4 && app.main.DD == true){
 			this.useMove = 5;
-		} else if(app.main.chance <= .6 && app.main.LG == true){
+		} else if(app.main.chance <= .6 && app.main.chance > .5 && app.main.LG == true){
 			this.useMove = 4;
-		} else if(app.main.chance <= .7 && app.main.SF == true){
+		} else if(app.main.chance <= .7 && app.main.chance > .6 && app.main.SF == true){
 			this.useMove = 6;
 		} else {
 			if(app.main.CF == true && app.main.BB == false && app.main.MS == false && app.main.DD == false && app.main.LG == false && app.main.SF == false){
@@ -2182,9 +2182,9 @@ app.Android18 = (function(){
 			} else if(this.counter < 6){
 				app.main.sound.playEnergyAttack2(5);
 				if(app.main.EE == true){
-							this.energy -= 1;
-						} else {
 							this.energy -= 2;
+						} else {
+							this.energy -= 3;
 						}
 						if(app.main.HZ == true){
 							if(this.left == true){
@@ -2205,9 +2205,9 @@ app.Android18 = (function(){
 			} else if(this.counter < 9){
 				app.main.sound.playEnergyAttack2(5);
 				if(app.main.EE == true){
-							this.energy -= 1;
-						} else {
 							this.energy -= 2;
+						} else {
+							this.energy -= 3;
 						}
 						if(app.main.HZ == true){
 							if(this.left == true){
@@ -2228,9 +2228,9 @@ app.Android18 = (function(){
 			} else if(this.counter < 12){
 				app.main.sound.playEnergyAttack2(5);
 				if(app.main.EE == true){
-							this.energy -= 1;
-						} else {
 							this.energy -= 2;
+						} else {
+							this.energy -= 3;
 						}
 						if(app.main.HZ == true){
 							if(this.left == true){
@@ -2251,9 +2251,9 @@ app.Android18 = (function(){
 			} else if(this.counter < 15){
 				app.main.sound.playEnergyAttack2(5);
 				if(app.main.EE == true){
-							this.energy -= 1;
-						} else {
 							this.energy -= 2;
+						} else {
+							this.energy -= 3;
 						}
 						if(app.main.HZ == true){
 							if(this.left == true){
@@ -2274,9 +2274,9 @@ app.Android18 = (function(){
 			} else if(this.counter < 18){
 				app.main.sound.playEnergyAttack2(5);
 				if(app.main.EE == true){
-							this.energy -= 1;
-						} else {
 							this.energy -= 2;
+						} else {
+							this.energy -= 3;
 						}
 						if(app.main.HZ == true){
 							if(this.left == true){
@@ -2297,9 +2297,9 @@ app.Android18 = (function(){
 			} else if(this.counter < 21){
 				app.main.sound.playEnergyAttack2(5);
 				if(app.main.EE == true){
-							this.energy -= 1;
-						} else {
 							this.energy -= 2;
+						} else {
+							this.energy -= 3;
 						}
 						if(app.main.HZ == true){
 							if(this.left == true){
@@ -2372,7 +2372,7 @@ app.Android18 = (function(){
 			} else if(this.counter < 13){
 				ctx.drawImage(this.DD1,-45,-10); //3
 				
-			} else if(this.counter < 40){
+			} else if(this.counter < 30){
 				if(this.arms == false){
 					if(this.counter < 14){
 						app.main.sound.playEnergyAttack(33);
