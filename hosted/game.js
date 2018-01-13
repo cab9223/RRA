@@ -12099,7 +12099,7 @@ app.main = (_app$main = {
 
 		if (this.gameState == this.GAME_STATE.TUTORIAL && this.changed == false) {
 			this.android17 = new app.Android17(900, this.vegeta);
-			this.vegeta = new app.Vegeta(200, 2, this.android18);
+			this.vegeta = new app.Vegeta(200, 1, this.android18);
 			this.vegeta.scenePlay = true;
 			this.android18 = new app.Android18(800, this.vegeta);
 			this.android18.right = false;
