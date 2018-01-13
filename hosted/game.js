@@ -3186,19 +3186,19 @@ app.Android18 = function () {
 
 	//Starts a jump/flight
 	Android18.prototype.checker = function () {
-		if (app.main.chance <= .1 && app.main.CF == false) {
+		if (app.main.chance <= .1 && app.main.chance > 0 && app.main.CF == false) {
 			this.useMove = 0;
-		} else if (app.main.chance <= .2 && app.main.CF == false) {
+		} else if (app.main.chance <= .2 && app.main.chance > .1 && app.main.CF == false) {
 			this.useMove = 1;
-		} else if (app.main.chance <= .3 && app.main.BB == true) {
+		} else if (app.main.chance <= .3 && app.main.chance > .2 && app.main.BB == true) {
 			this.useMove = 2;
-		} else if (app.main.chance <= .4 && app.main.MS == true) {
+		} else if (app.main.chance <= .4 && app.main.chance > .3 && app.main.MS == true) {
 			this.useMove = 3;
-		} else if (app.main.chance <= .5 && app.main.DD == true) {
+		} else if (app.main.chance <= .5 && app.main.chance > .4 && app.main.DD == true) {
 			this.useMove = 5;
-		} else if (app.main.chance <= .6 && app.main.LG == true) {
+		} else if (app.main.chance <= .6 && app.main.chance > .5 && app.main.LG == true) {
 			this.useMove = 4;
-		} else if (app.main.chance <= .7 && app.main.SF == true) {
+		} else if (app.main.chance <= .7 && app.main.chance > .6 && app.main.SF == true) {
 			this.useMove = 6;
 		} else {
 			if (app.main.CF == true && app.main.BB == false && app.main.MS == false && app.main.DD == false && app.main.LG == false && app.main.SF == false) {
@@ -4302,9 +4302,9 @@ app.Android18 = function () {
 					} else if (this.counter < 6) {
 						app.main.sound.playEnergyAttack2(5);
 						if (app.main.EE == true) {
-							this.energy -= 1;
-						} else {
 							this.energy -= 2;
+						} else {
+							this.energy -= 3;
 						}
 						if (app.main.HZ == true) {
 							if (this.left == true) {
@@ -4325,9 +4325,9 @@ app.Android18 = function () {
 					} else if (this.counter < 9) {
 						app.main.sound.playEnergyAttack2(5);
 						if (app.main.EE == true) {
-							this.energy -= 1;
-						} else {
 							this.energy -= 2;
+						} else {
+							this.energy -= 3;
 						}
 						if (app.main.HZ == true) {
 							if (this.left == true) {
@@ -4348,9 +4348,9 @@ app.Android18 = function () {
 					} else if (this.counter < 12) {
 						app.main.sound.playEnergyAttack2(5);
 						if (app.main.EE == true) {
-							this.energy -= 1;
-						} else {
 							this.energy -= 2;
+						} else {
+							this.energy -= 3;
 						}
 						if (app.main.HZ == true) {
 							if (this.left == true) {
@@ -4371,9 +4371,9 @@ app.Android18 = function () {
 					} else if (this.counter < 15) {
 						app.main.sound.playEnergyAttack2(5);
 						if (app.main.EE == true) {
-							this.energy -= 1;
-						} else {
 							this.energy -= 2;
+						} else {
+							this.energy -= 3;
 						}
 						if (app.main.HZ == true) {
 							if (this.left == true) {
@@ -4394,9 +4394,9 @@ app.Android18 = function () {
 					} else if (this.counter < 18) {
 						app.main.sound.playEnergyAttack2(5);
 						if (app.main.EE == true) {
-							this.energy -= 1;
-						} else {
 							this.energy -= 2;
+						} else {
+							this.energy -= 3;
 						}
 						if (app.main.HZ == true) {
 							if (this.left == true) {
@@ -4417,9 +4417,9 @@ app.Android18 = function () {
 					} else if (this.counter < 21) {
 						app.main.sound.playEnergyAttack2(5);
 						if (app.main.EE == true) {
-							this.energy -= 1;
-						} else {
 							this.energy -= 2;
+						} else {
+							this.energy -= 3;
 						}
 						if (app.main.HZ == true) {
 							if (this.left == true) {
@@ -4491,7 +4491,7 @@ app.Android18 = function () {
 						ctx.drawImage(this.DD1, -45, -10); //2
 					} else if (this.counter < 13) {
 						ctx.drawImage(this.DD1, -45, -10); //3
-					} else if (this.counter < 40) {
+					} else if (this.counter < 30) {
 						if (this.arms == false) {
 							if (this.counter < 14) {
 								app.main.sound.playEnergyAttack(33);
@@ -12099,7 +12099,7 @@ app.main = (_app$main = {
 
 		if (this.gameState == this.GAME_STATE.TUTORIAL && this.changed == false) {
 			this.android17 = new app.Android17(900, this.vegeta);
-			this.vegeta = new app.Vegeta(200, 1, this.android18);
+			this.vegeta = new app.Vegeta(200, 2, this.android18);
 			this.vegeta.scenePlay = true;
 			this.android18 = new app.Android18(800, this.vegeta);
 			this.android18.right = false;
@@ -13627,7 +13627,7 @@ app.main = (_app$main = {
 					this.vegeta.superSpeed = true;
 				}
 
-				if (this.blasts[i].blastUser == 3) {
+				if (this.blasts[i].blastUser != 0) {
 					if (this.blasts[i].type == 7 && this.blasts[i].dirLeft == false && this.blasts[i].triggerState == 0 && this.blasts[i].position.x < this.android18.position.x + 100 && this.blasts[i].position.x > this.android18.position.x - 100 && (this.blasts[i].position.y > this.android18.position.y + 75 || this.blasts[i].position.y < this.android18.position.y - 25)) {
 						if (this.blasts[i].position.y > this.android18.position.y) {
 							this.blasts[i].turnDown = false;
@@ -18447,20 +18447,20 @@ app.main = (_app$main = {
     this.android17.evasion = false;
     this.android17.encounter = true;
     this.aiChoice4 = .96; */
-				//this.vegeta.endurance = 1;
-				//this.vegeta.health = 1;
-				this.powerModule = true;
-				this.temporalModule = true;
-				this.aegisChip = true;
-				this.synchronousChip = true;
-				this.mindCircuit = true;
-				this.masteryCircuit = true;
-				this.dataOfPiccolo = true;
-				this.dataOfVegeta = true;
-				this.dataOfGohan = true;
-				this.dataOfTien = true;
-				this.dataOfKrillin = true;
-				this.version = 20;
+				this.vegeta.endurance = 1;
+				this.vegeta.health = 1;
+				/* this.powerModule = true;
+    this.temporalModule = true;
+    this.aegisChip = true;
+    this.synchronousChip = true;
+    this.mindCircuit = true;
+    this.masteryCircuit = true;
+    this.dataOfPiccolo = true;
+    this.dataOfVegeta = true;
+    this.dataOfGohan = true;
+    this.dataOfTien = true;
+    this.dataOfKrillin = true;
+    this.version = 20; */
 				//this.android17.counter = 0;
 				//this.dodgeChance2 = .05;
 				//this.android17.fight = true;
@@ -18468,8 +18468,8 @@ app.main = (_app$main = {
 				//this.android17.fieldOn = true;
 				//this.android17.stun = true;
 				//this.android17.hurtBlasting = true;
-				this.android18.endurance = 1;
-				this.android18.health = 1;
+				//this.android18.endurance = 1;
+				//this.android18.health = 1;
 				//this.dataOfVegeta = false;
 				//this.android17.cinematic = true;
 				//this.vegeta.blastTrigger = true;
@@ -25632,6 +25632,20 @@ app.Vegeta = function () {
 				}
 				//BLAST ATTACK
 			} else if (this.attacking == true && this.hit == false && this.intensify == false && this.powerMove == false && this.charging == false) {
+				if (this.blastCount > 20) {
+					this.fight = false;
+					this.attacking = false;
+					this.blasting = false;
+					app.main.aiChoice2 = Math.random();
+					app.main.chance2 = Math.random();
+					this.counter = 0;
+					if (this.air == false) {
+						ctx.drawImage(this.blastPiccolo, -15, -23);
+					} else {
+						ctx.drawImage(this.blastAirPiccolo, -8, -15);
+					}
+				}
+
 				if (this.counter < 3) {
 					if (this.air == false) {
 						ctx.drawImage(this.blastPrepPiccolo, 1, -15);

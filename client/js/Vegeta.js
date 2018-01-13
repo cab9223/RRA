@@ -4326,6 +4326,20 @@ app.Vegeta = (function(){
 			}	
 		//BLAST ATTACK
 		} else if(this.attacking == true && this.hit == false && this.intensify == false && this.powerMove == false && this.charging == false){
+			if(this.blastCount > 20){
+				this.fight = false;
+				this.attacking = false;
+				this.blasting = false;
+				app.main.aiChoice2 = Math.random();
+				app.main.chance2 = Math.random();
+				this.counter = 0;
+				if(this.air == false){
+					ctx.drawImage(this.blastPiccolo,-15,-23);
+				} else {
+					ctx.drawImage(this.blastAirPiccolo,-8,-15);
+				}
+			}
+			
 			if(this.counter < 3){
 				if(this.air == false){
 					ctx.drawImage(this.blastPrepPiccolo,1,-15);

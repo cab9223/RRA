@@ -663,7 +663,7 @@ app.main = {
 			
 			if(this.gameState == this.GAME_STATE.TUTORIAL && this.changed == false) {
 				this.android17 = new app.Android17(900,this.vegeta);
-				this.vegeta = new app.Vegeta(200,1,this.android18);
+				this.vegeta = new app.Vegeta(200,2,this.android18);
 				this.vegeta.scenePlay = true;
 				this.android18 = new app.Android18(800,this.vegeta);
 				this.android18.right = false;
@@ -2207,7 +2207,7 @@ app.main = {
 					}
 					
 					
-					if(this.blasts[i].blastUser == 3){
+					if(this.blasts[i].blastUser != 0){
 					if(this.blasts[i].type == 7 && this.blasts[i].dirLeft == false && this.blasts[i].triggerState == 0 && ((this.blasts[i].position.x < this.android18.position.x + 100) && (this.blasts[i].position.x > this.android18.position.x - 100)) && ((this.blasts[i].position.y > this.android18.position.y + 75) || (this.blasts[i].position.y < this.android18.position.y - 25))){
 						if(this.blasts[i].position.y > this.android18.position.y) {
 							this.blasts[i].turnDown = false;
@@ -7141,9 +7141,9 @@ app.main = {
 				this.android17.evasion = false;
 				this.android17.encounter = true;
 				this.aiChoice4 = .96; */
-				//this.vegeta.endurance = 1;
-				//this.vegeta.health = 1;
-				this.powerModule = true;
+				this.vegeta.endurance = 1;
+				this.vegeta.health = 1;
+				/* this.powerModule = true;
 				this.temporalModule = true;
 				this.aegisChip = true;
 				this.synchronousChip = true;
@@ -7154,7 +7154,7 @@ app.main = {
 				this.dataOfGohan = true;
 				this.dataOfTien = true;
 				this.dataOfKrillin = true;
-				this.version = 20;
+				this.version = 20; */
 				//this.android17.counter = 0;
 				//this.dodgeChance2 = .05;
 				//this.android17.fight = true;
@@ -7162,8 +7162,8 @@ app.main = {
 				//this.android17.fieldOn = true;
 				//this.android17.stun = true;
 				//this.android17.hurtBlasting = true;
-				this.android18.endurance = 1;
-				this.android18.health = 1;
+				//this.android18.endurance = 1;
+				//this.android18.health = 1;
 				//this.dataOfVegeta = false;
 				//this.android17.cinematic = true;
 				//this.vegeta.blastTrigger = true;
